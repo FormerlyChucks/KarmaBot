@@ -6,7 +6,6 @@ import pyimgur
 from halo import Halo
 
 spinner = Halo(spinner={'interval': 100, 'frames': ['-', '+', '*', '+', '-']})
-#spinner.start()
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 imgur_id = config.I_ID
