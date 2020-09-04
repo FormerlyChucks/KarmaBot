@@ -9,6 +9,7 @@ spinner = Halo(spinner={'interval': 100, 'frames': ['-', '+', '*', '+', '-']})
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 imgur_id = config.I_ID
+bad_subs = ['rape', 'abuse', 'more', 'subs', 'to', 'ignore']
 
 while True:
     try:
@@ -20,7 +21,7 @@ while True:
         
         submissions = list(subreddit.top('all', limit=limit))
         submission = random.choice(submissions)
-        if submission.domain in domains:
+        if subreddit not in bad_subs and submission.domain in domains:
             im = pyimgur.Imgur(imgur_id)
             uploaded_image = im.upload_image(url=submission.url)
             with open ('links.txt', "a") as f:
