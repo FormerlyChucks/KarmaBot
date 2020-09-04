@@ -2,16 +2,17 @@ import praw
 import time
 import config
 import difflib
- 
-reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
+from halo import Halo
 
+spinner = Halo(spinner={'interval': 100, 'frames': ['-', '+', '*', '+', '-']}) 
+reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 bad_subs = ['rape', 'abuse', 'more', 'subs', 'to', 'ignore']
 bad_users = ['diogenesjunior', 'diogenesjunior2', 'GallowTits', 'more', 'users', 'to', 'ignore']
 subreddit = reddit.subreddit('random')
 
 while True:
     try:
-        
+        spinner.start(text='running bot')
         for submission in subreddit.new(limit=1):
             if submission.subreddit not in bad_subs:
                 for search in subreddit.search(submission.title):
@@ -23,7 +24,8 @@ while True:
                         submission.reply(our_comment.body)
                         
     except Exception as e:
-        print(e)
+        exc = str(str(e))
+        spinner.fail(text=exc)
         time.sleep(60)
         
     except KeyboardInterrupt:
