@@ -5,7 +5,7 @@ import config
 import pyimgur
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
-subreddit = reddit.subreddit(config.sub)
+subreddit = reddit.subreddit(config.SUB)
 imgur_id = config.I_ID
 domains = ['i.redd.it', 'i.imgur.com']
 limit = None
