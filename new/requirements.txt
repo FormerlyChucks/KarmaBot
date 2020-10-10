@@ -1,3 +1,2 @@
 praw
 pyimgur
-honcho
