@@ -33,4 +33,4 @@
     * Edit "I_ID" with your imgur client id
 * In your terminal run the following:
 
-      honcho start 
+      python3 main.py
