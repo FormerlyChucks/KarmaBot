@@ -1,15 +1,13 @@
-import time
-import praw
-import random
-import config
-import pyimgur
+import time, praw, random, config, pyimgur
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 subreddit = reddit.subreddit(config.SUB)
-imgur_id = config.I_ID
 domains = ['i.redd.it', 'i.imgur.com']
-limit = None
+reddit.validate_on_submit = True
 x = random.randint(0,2)
+imgur_id = config.I_ID
+limit = None
+
 while True:
     try:
         subreddit = reddit.subreddit('random')
@@ -21,11 +19,12 @@ while True:
             uploaded_image = im.upload_image(url=submission.url)
             with open ('links.txt', "a") as f:
                 f.write(uploaded_image.link + "\n")
-            reddit.validate_on_submit = True
             subreddit.submit(submission.title, url=uploaded_image.link)
-            print('success')          
+            print('success')
+            time.sleep(60)
         elif submission.domain not in domains:
-            print('domain is not in domains :(')      
+            print('domain is not in domains :(')
+            time.sleep(60)
         for submission in subreddit.stream.submissions(skip_existing=True):
             for results in subreddit.search(submission.title): 
                 similarity = difflib.SequenceMatcher(None, submission.title,results.title).ratio()
