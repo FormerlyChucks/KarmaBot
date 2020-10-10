@@ -3,4 +3,4 @@
 
 This is the source code that was running the diogenesjunior2 reddit account. The account is now suspended, but here's a look at the bot:
 
-[]
+![](https://i.imgur.com/DDYQh15.png)
