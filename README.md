@@ -20,4 +20,4 @@ And this is the end result:
 
 ![](https://i.imgur.com/vl24adf.png)
 
-The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes.
+The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes. For a bot that farms karma but doesn't repost, see my repo [here](https://github.com/Mr-Steal-Your-Script/Humanoid)
