@@ -10,7 +10,7 @@
 * Run the following in your terminal
 
         git clone https://github.com/Mr-Steal-Your-Script/KarmaBot
-        cd KarmaBot
+        cd KarmaBot/old
         pip3 install -r requirements.txt
 
 * Create a reddit app
