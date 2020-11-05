@@ -10,10 +10,8 @@ while True:
         if submission.domain in ['i.redd.it', 'i.imgur.com']:
             uploaded_image = pyimgur.Imgur(config.I_ID).upload_image(url=submission.url)
             subreddit.submit(submission.title, url=uploaded_image.link)
-            print('success')
             time.sleep(60)
         elif submission.domain not in domains:
-            print('domain is not in domains :(')
             time.sleep(60)
         for submission in reddit.subreddit(config.SUBS).stream.submissions(skip_existing=True):
             for results in subreddit.search(submission.title): 
@@ -28,5 +26,4 @@ while True:
         print(traceback.format_exc())
         time.sleep(60)       
     except KeyboardInterrupt:
-        print('shutting down :(')
         quit()
