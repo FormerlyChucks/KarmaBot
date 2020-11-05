@@ -18,6 +18,6 @@ By peeking at the source code, you can tell what it did. For the lazy:
   
 ## Setup:
 
+- The "old" directory contains the original source code and won't be updated at all.
 - See the guide [here](https://mr-steal-your-script.github.io/KarmaBot.html?)
-
-The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes.
+- The "new" directory is something I maintain for fun and will occasionally have some changes.
