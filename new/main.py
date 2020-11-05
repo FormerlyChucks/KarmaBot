@@ -1,4 +1,4 @@
-import time, praw, random, config, pyimgur, traceback
+import time, praw, random, config, pyimgur
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 reddit.validate_on_submit = True
@@ -19,7 +19,5 @@ while True:
                     if comment.author not in config.usernames and comment.body != '[deleted]':
                         submission.reply(comment.body)
                         break           
-    except Exception:
-        print(traceback.format_exc())
-        time.sleep(60)       
+    except Exception: time.sleep(60)       
     except KeyboardInterrupt: quit()
