@@ -5,17 +5,15 @@ subreddit = reddit.subreddit(config.SUB)
 domains = ['i.redd.it', 'i.imgur.com']
 reddit.validate_on_submit = True
 x = random.randint(0,2)
-imgur_id = config.I_ID
-limit = None
 
 while True:
     try:
         subreddit = reddit.subreddit('random')
         print('Random Subreddit Is: ', subreddit)       
-        submissions = list(subreddit.top('all', limit=limit))
+        submissions = list(subreddit.top('all', limit=None))
         submission = random.choice(submissions)
         if submission.domain in domains:
-            im = pyimgur.Imgur(imgur_id)
+            im = pyimgur.Imgur(config.I_ID)
             uploaded_image = im.upload_image(url=submission.url)
             with open ('links.txt', "a") as f:
                 f.write(uploaded_image.link + "\n")
