@@ -32,8 +32,7 @@ while True:
             
     except Exception:
         print(traceback.format_exc())
-        time.sleep(60)
-        
+        time.sleep(60)       
     except KeyboardInterrupt:
         print('shutting down :(')
         quit()
