@@ -1,7 +1,6 @@
 import time, praw, random, config, pyimgur, traceback
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
-domains = ['i.redd.it', 'i.imgur.com']
 reddit.validate_on_submit = True
 x = random.randint(0,2)
 
@@ -11,7 +10,7 @@ while True:
         print('Random Subreddit Is: ', subreddit)       
         submissions = list(subreddit.top('all', limit=None))
         submission = random.choice(submissions)
-        if submission.domain in domains:
+        if submission.domain in ['i.redd.it', 'i.imgur.com']:
             im = pyimgur.Imgur(config.I_ID)
             uploaded_image = im.upload_image(url=submission.url)
             with open ('links.txt', "a") as f:
