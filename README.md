@@ -3,7 +3,7 @@
 
 This is the source code that was running the diogenesjunior2 reddit account. The account is now suspended, but here's a look at the bot:
 
-![](https://i.imgur.com/DDYQh15.png) ![](https://i.imgur.com/M5RjMow.png)
+![](https://i.imgur.com/cwAXx7R.png)
 
 ## What did it do?
 
@@ -15,9 +15,5 @@ By peeking at the source code, you can tell what it did. For the lazy:
   - download image
   - upload to imgur
   - submit to subreddit with link to repost
-  
-And this is the end result:
-
-![](https://i.imgur.com/vl24adf.png)
 
 The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes. For a bot that farms karma but doesn't repost, see my repo [here](https://github.com/Mr-Steal-Your-Script/Humanoid)
