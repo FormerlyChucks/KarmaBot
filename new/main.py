@@ -1,4 +1,4 @@
-import time, praw, random, config, pyimgur
+import time, praw, random, config, pyimgur, traceback
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
 subreddit = reddit.subreddit(config.SUB)
@@ -34,8 +34,8 @@ while True:
                         submission.reply(comment.body)
                         break
             
-    except Exception as e:
-        print(e)
+    except Exception:
+        print(traceback.format_exc())
         time.sleep(60)
         
     except KeyboardInterrupt:
