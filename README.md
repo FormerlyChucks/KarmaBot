@@ -15,5 +15,9 @@ By peeking at the source code, you can tell what it did. For the lazy:
   - download image
   - upload to imgur
   - submit to subreddit with link to repost
+  
+## Setup:
 
-The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes. For a bot that farms karma but doesn't repost, see my repo [here](https://github.com/Mr-Steal-Your-Script/Humanoid)
+- See the guide [here](https://mr-steal-your-script.github.io/KarmaBot.html?)
+
+The "old" directory contains the original source code. It won't be updated at all. The "new" directory is something I maintain for fun, and will occasionally have some changes.
