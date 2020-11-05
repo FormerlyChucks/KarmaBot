@@ -13,8 +13,6 @@ while True:
         if submission.domain in ['i.redd.it', 'i.imgur.com']:
             im = pyimgur.Imgur(config.I_ID)
             uploaded_image = im.upload_image(url=submission.url)
-            with open ('links.txt', "a") as f:
-                f.write(uploaded_image.link + "\n")
             subreddit.submit(submission.title, url=uploaded_image.link)
             print('success')
             time.sleep(60)
