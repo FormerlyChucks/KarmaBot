@@ -1,7 +1,6 @@
 import time, praw, random, config, pyimgur, traceback
 
 reddit = praw.Reddit(client_id=config.C_ID, client_secret=config.C_S, user_agent=config.U_A, username=config.UN, password=config.PW)
-subreddits = reddit.subreddit(config.SUBS)
 domains = ['i.redd.it', 'i.imgur.com']
 reddit.validate_on_submit = True
 x = random.randint(0,2)
@@ -23,7 +22,7 @@ while True:
         elif submission.domain not in domains:
             print('domain is not in domains :(')
             time.sleep(60)
-        for submission in subreddits.stream.submissions(skip_existing=True):
+        for submission in reddit.subreddit(config.SUBS).stream.submissions(skip_existing=True):
             for results in subreddit.search(submission.title): 
                 similarity = difflib.SequenceMatcher(None, submission.title,results.title).ratio()
                 if results.num_comments >= 3 and similarity >= .8:
