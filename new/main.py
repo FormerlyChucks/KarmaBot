@@ -7,9 +7,7 @@ x = random.randint(0,2)
 while True:
     try:
         subreddit = reddit.subreddit('random')
-        print('Random Subreddit Is: ', subreddit)       
-        submissions = list(subreddit.top('all', limit=None))
-        submission = random.choice(submissions)
+        submission = random.choice(list(subreddit.top('all', limit=None)))
         if submission.domain in ['i.redd.it', 'i.imgur.com']:
             im = pyimgur.Imgur(config.I_ID)
             uploaded_image = im.upload_image(url=submission.url)
