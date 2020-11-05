@@ -6,11 +6,9 @@ x = random.randint(0,2)
 
 while True:
     try:
-        subreddit = reddit.subreddit('random')
-        submission = random.choice(list(subreddit.top('all', limit=None)))
+        submission = random.choice(list(reddit.subreddit('random').top('all', limit=None)))
         if submission.domain in ['i.redd.it', 'i.imgur.com']:
-            im = pyimgur.Imgur(config.I_ID)
-            uploaded_image = im.upload_image(url=submission.url)
+            uploaded_image = pyimgur.Imgur(config.I_ID).upload_image(url=submission.url)
             subreddit.submit(submission.title, url=uploaded_image.link)
             print('success')
             time.sleep(60)
