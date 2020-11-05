@@ -25,5 +25,4 @@ while True:
     except Exception:
         print(traceback.format_exc())
         time.sleep(60)       
-    except KeyboardInterrupt:
-        quit()
+    except KeyboardInterrupt: quit()
