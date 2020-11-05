@@ -20,8 +20,7 @@ while True:
                     comment = results.comments[x]
                     if comment.author not in config.usernames and comment.body != '[deleted]':
                         submission.reply(comment.body)
-                        break
-            
+                        break           
     except Exception:
         print(traceback.format_exc())
         time.sleep(60)       
