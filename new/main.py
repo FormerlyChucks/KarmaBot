@@ -13,8 +13,7 @@ while True:
         elif submission.domain not in domains: time.sleep(60)
         for submission in reddit.subreddit(config.SUBS).stream.submissions(skip_existing=True):
             for results in subreddit.search(submission.title): 
-                similarity = difflib.SequenceMatcher(None, submission.title,results.title).ratio()
-                if results.num_comments >= 3 and similarity >= .8:
+                if results.num_comments >= 3 and difflib.SequenceMatcher(None, submission.title,results.title).ratio() >= .8:
                     comment = results.comments[random.randint(0,2)]
                     if comment.author not in config.usernames and comment.body != '[deleted]':
                         submission.reply(comment.body)
