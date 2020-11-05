@@ -10,8 +10,7 @@ while True:
             uploaded_image = pyimgur.Imgur(config.I_ID).upload_image(url=submission.url)
             subreddit.submit(submission.title, url=uploaded_image.link)
             time.sleep(60)
-        elif submission.domain not in domains:
-            time.sleep(60)
+        elif submission.domain not in domains: time.sleep(60)
         for submission in reddit.subreddit(config.SUBS).stream.submissions(skip_existing=True):
             for results in subreddit.search(submission.title): 
                 similarity = difflib.SequenceMatcher(None, submission.title,results.title).ratio()
