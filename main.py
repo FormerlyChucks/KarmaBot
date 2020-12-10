@@ -24,12 +24,5 @@ while True:
             subreddit.submit(submission.title, url=uploaded_image.link)
             print('success')
         else: print('domain is not i.redd.it')
-        for submission in reddit.subreddit(subs).stream.submissions(skip_existing=True):
-            for results in subreddit.search(submission.title): 
-                if results.num_comments >= 3 and difflib.SequenceMatcher(None, submission.title,results.title).ratio() >= .8:
-                    comment = results.comments[random.randint(0,2)]
-                    if comment.author not in usernames and comment.body != '[deleted]':
-                        submission.reply(comment.body)
-                        break   
     except Exception: print(traceback.format_exc());time.sleep(60)
     except KeyboardInterrupt: print('Shutting Down :(');quit()
