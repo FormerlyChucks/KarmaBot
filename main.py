@@ -20,8 +20,6 @@ while True:
         submission = random.choice(list(subreddit.top('all', limit=None)))
         if submission.domain == 'i.redd.it':
             uploaded_image = pyimgur.Imgur(imgur_id).upload_image(url=submission.url)
-            with open ('links.txt', "a") as f:
-                f.write(uploaded_image.link + "\n")
             reddit.validate_on_submit = True
             subreddit.submit(submission.title, url=uploaded_image.link)
             print('success')
