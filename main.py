@@ -8,8 +8,6 @@ with open("config.yaml") as config_file:
     username = config["username"]
     password = config["password"]
     imgur_id = config["imgur_id"]
-    subs = config["subs"]
-    usernames = config["usernames"]
 
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent=user_agent, username=username, password=password)
 
