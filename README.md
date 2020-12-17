@@ -33,11 +33,12 @@ Edit the configuration file:
 
     nano config.yaml
 
-- Edit "c_id" with the "personal use script"
-- Edit "c_s" with the secret
-- Edit "u_a" with the bot's description
-- Edit "i_id" with your Imgur client id
-- For the list of subs, add some subs that you wish to repost from
+- Edit "client_id" with the "personal use script"
+- Edit "client_secret" with the secret
+- Edit "user_agent" with the bot's description
+- Edit "username" with the bot's username
+- Edit "password" with the bot's password
+- Edit "imgur_id" with your Imgur client id
 - Save the file (ctrl x and Y)
 
 ## Run the bot:
