@@ -13,14 +13,9 @@ reddit.validate_on_submit = True
 
 while True:
     try:
-        subreddit = reddit.subreddit('random')
-        print('Random Subreddit Is: ',subreddit)
-        submissions = list(subreddit.top('all', limit=None))
-        submission = random.choice(submissions)
-        if submission.domain == 'i.redd.it':
-            uploaded_image = pyimgur.Imgur(config["imgur_id"]).upload_image(url=submission.url)
-            subreddit.submit(submission.title, url=uploaded_image.link)
-            print('success')
+        subreddit = reddit.subreddit('random');print('Random Subreddit Is: ',subreddit)
+        submissions = list(subreddit.top('all', limit=None));submission = random.choice(submissions)
+        if submission.domain == 'i.redd.it': subreddit.submit(submission.title, url=pyimgur.Imgur(config["imgur_id"]).upload_image(url=submission.url).link);print('success')
         else: print('domain is not i.redd.it')
     except Exception: print(traceback.format_exc());time.sleep(60)
     except KeyboardInterrupt: print('Shutting Down :(');quit()
