@@ -1,13 +1,19 @@
 import time, praw, yaml, random, pyimgur, traceback
 
-with open("config.yaml") as config_file:
-    config = yaml.safe_load(config_file)
+with open("config.yaml") as cf:
+    config = yaml.safe_load(cf)
+    _id = cf["client_id"]
+    secret = cf["client_secret"]
+    agent = cf["user_agent"]
+    username = cf["username"]
+    password = cf["password"]
+    imgur_key = cf['imgur_id']
 
-reddit = praw.Reddit(client_id=config["client_id"],
-                     client_secret=config["client_secret"],
-                     user_agent=config["user_agent"],
-                     username=config["username"],
-                     password=config["password"])
+reddit = praw.Reddit(client_id=_id,
+                     client_secret=secret,
+                     user_agent=agent,
+                     username=username,
+                     password=password)
 
 reddit.validate_on_submit = True
 
@@ -27,7 +33,7 @@ while True:
         submissions = list(subreddit.top('all', limit=None))
         submission = random.choice(submissions)
         if submission.domain == 'i.redd.it':
-            link = upload(imgur_id = config['imgur_id'])
+            link = upload(imgur_id=imgur_key)
             post = submit(title, url=link)
             print(post)
         else:
