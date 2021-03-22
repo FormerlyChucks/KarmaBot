@@ -11,9 +11,14 @@ reddit = praw.Reddit(client_id=config["client_id"],
 
 reddit.validate_on_submit = True
 
-def submit(title,url):
-    subreddit.submit(title=title, url=pyimgur.Imgur(config["imgur_id"]).upload_image(url=submission.url).link)
+def upload(imgur_id,url):
+    img = pyimgur.Imgur(imgur_id)
+    image = img.upload_image(url=url)
+    return image.link
     
+def submit(title,url):
+    subreddit.submit(title,url)
+    return 'success'
 
 while True:
     try:
@@ -22,9 +27,9 @@ while True:
         submissions = list(subreddit.top('all', limit=None))
         submission = random.choice(submissions)
         if submission.domain == 'i.redd.it':
-            link = pyimgur.Imgur(config["imgur_id"]).upload_image(url=submission.url).link
-            subreddit.submit(title, url=link)
-            print('success')
+            link = upload(imgur_id = config['imgur_id'])
+            post = submit(title, url=link)
+            print(post)
         else:
             print('domain is not i.redd.it')
     except Exception:
