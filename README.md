@@ -1,46 +1,32 @@
-# KarmaWhore
+# KarmaBot
 
-Reposts old shit from the past for useless internet points. Using it, I was able to get just over 100,000 karma in under 72 hours.
+[image here\]
 
-## Setup
+Reposts old shit from the past for useless internet points. I was able to get just over 100,000 karma in under 72 hours.
 
-You'll need a Linux distro. Any distro that supports Python, Nano, Pip3 and Git will work. It might work on Windows/Mac, but I haven't tested that out.
+## Set-up
 
-Download the bot, change into its directory:
+Download the bot, change into the directory:
 
     git clone https://github.com/IThinkImOKAY/KarmaBot && cd KarmaBot
 
 Install the needed packages:
 
-    pip3 install -r requirements.txt
+    pip3 install praw pyyaml pyimgur
 
-### Getting API Keys
+Getting API Keys
 
-#### Imgur
+- You can get your Imgur credentials from [here](https://api.imgur.com/oauth2/addclient)
+- Follow [James Briggs' uide](https://towardsdatascience.com/how-to-use-the-reddit-api-in-python-5e05ddfd1e5c) to get your reddit API keys
 
-- Go to [/oauth2/addclient](https://api.imgur.com/oauth2/addclient)
-- Fill in the form and get your Imgur client ID.
+Edit the YAML file:
 
 
-#### Reddit
+- `client_id` is your reddit client ID
+- `client_secret` is your reddit client secret
+- `user_agent` should be a short description about your bot
+- `username` is your reddit username
+- `password` is your reddit password
+- `imgur_id` is your imgur client id
 
-- Go to [/prefs/apps](https://old.reddit.com/prefs/apps)
-- Select "are you a developer? create an app..."
-- Name it whatever you want to, but select "script"
-- Fill in the rest of the form
-
-Edit the configuration file:
-
-    nano config.yaml
-
-- Edit "client_id" with the "personal use script"
-- Edit "client_secret" with the secret
-- Edit "user_agent" with the bot's description
-- Edit "username" with the bot's username
-- Edit "password" with the bot's password
-- Edit "imgur_id" with your Imgur client id
-- Save the file (ctrl x and Y)
-
-## Run the bot:
-
-    python3 main.py
+I recommend using cron to schedule the bot to run to your liking :)
