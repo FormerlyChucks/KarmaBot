@@ -1,6 +1,6 @@
 # KarmaBot
 
-[image here\]
+![](award.png)
 
 Reposts old shit from the past for useless internet points. I was able to get just over 100,000 karma in under 72 hours.
 
